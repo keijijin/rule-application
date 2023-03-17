@@ -1,0 +1,40 @@
+POST http://localhost:8090/rest/server/containers/instances/rule-application-kjar-1_0-SNAPSHOT
+Content-Type: application/json
+Accept: application/json
+
+{ 
+   "lookup": "ksession-helloworld", 
+   "commands":[ 
+     {"insert":{"object":{"com.sample.model.Message":{"status":0,"message":"Hello World!"}}}},
+     {"fire-all-rules":""},
+     {"get-objects": {"out-identifier": "facts"}}
+   ] 
+}
+
+###
+POST http://localhost:8090/rest/server/containers/instances/rule-application-kjar-1_0-SNAPSHOT
+Content-Type: application/json
+Accept: application/json
+
+{
+	"lookup": "ksession-helloworld",
+	"commands": [
+		{
+			"insert": {"object":{
+				"com.sample.model.Message": {
+					"message": "Hello World!",
+					"status": 0
+				}
+      }
+			}
+		},
+		{
+			"fire-all-rules": ""
+		},
+		{
+			"get-objects": {
+				"out-identifier": "facts"
+			}
+		}
+	]
+}
